@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import {login, logout} from "../assets/js/near/utils";
 
 const Navbar = () => {
     return (
@@ -13,7 +14,12 @@ const Navbar = () => {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Basic App
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Button
+                        onClick={window.accountId ? logout : login}
+                        color="inherit"
+                    >
+                        {window.accountId ? window.accountId : 'Login'}
+                    </Button>
                 </Toolbar>
             </AppBar>
         </Box>
