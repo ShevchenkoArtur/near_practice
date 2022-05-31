@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import {Box, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {login} from "./assets/js/near/utils";
+import Metadata from "./components/Metadata";
 
 const App = () => {
     return (
@@ -14,7 +15,9 @@ const App = () => {
                 {window.accountId
                     ?
                     <Box mt={3}>
-                        <Typography align='center'>Meta Data</Typography>
+                        <Box>
+                            <Metadata />
+                        </Box>
                         <Typography align='center'>Send Token Out</Typography>
                         <Typography align='center'>Active keys</Typography>
                     </Box>
