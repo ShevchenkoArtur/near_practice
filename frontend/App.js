@@ -6,6 +6,7 @@ import {Box, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {login} from "./assets/js/near/utils";
 import Metadata from "./components/Metadata";
+import SendTokens from "./components/SendTokens";
 
 const App = () => {
     return (
@@ -15,10 +16,8 @@ const App = () => {
                 {window.accountId
                     ?
                     <Box mt={3}>
-                        <Box>
-                            <Metadata />
-                        </Box>
-                        <Typography align='center'>Send Token Out</Typography>
+                        <Metadata />
+                        <SendTokens />
                         <Typography align='center'>Active keys</Typography>
                     </Box>
                     :
