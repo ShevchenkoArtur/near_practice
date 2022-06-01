@@ -25,3 +25,19 @@ export function addFunds(recipient: string, amount: i32): void {
         totalSent.set(Context.sender, [amount]);
     }
 }
+
+export function getNames(user: string): string[] {
+    if (recipientList.contains(user)) {
+        return recipientList.getSome(user);
+    } else {
+        return [];
+    }
+}
+
+export function getValues(user: string): i32[] {
+    if (totalSent.contains(user)) {
+        return totalSent.getSome(user);
+    } else {
+        return [];
+    }
+}
