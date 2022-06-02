@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "asb",
-    "deploy": "near dev-deploy build/release/todos-crud-contract.wasm",
+    "deploy": "near dev-deploy build/release/contract.wasm",
     "dev": "npm run build && npm run deploy",
     "test": "asp"
   },

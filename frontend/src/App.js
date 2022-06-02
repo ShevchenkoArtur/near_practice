@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React from 'react';
 import PropTypes from 'prop-types';
+import CreateTodo from "./components/CreateTodo";
 
 const App = ({ contract, currentUser, nearConfig, wallet }) => {
 
@@ -25,6 +26,7 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
                 {" "}
                 <button onClick={signOut}>Log out</button>
               </h2>
+              <CreateTodo contract={contract}/>
             </div>
             :
             <div>

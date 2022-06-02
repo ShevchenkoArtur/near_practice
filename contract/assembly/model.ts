@@ -5,18 +5,18 @@ export const todos = new PersistentUnorderedMap<u32, Todo>("todos");
 @nearBindgen
 export class Todo {
     id: u32;
-    task: string;
+    text: string;
     done: bool;
 
-    constructor(task: string) {
-        this.id = math.hash32<string>(task);
-        this.task = task;
+    constructor(text: string) {
+        this.id = math.hash32<string>(text);
+        this.text = text;
         this.done = false;
     }
 
-    static insert(task: string): Todo {
+    static insert(text: string): Todo {
         // create a new Todo
-        const todo = new Todo(task);
+        const todo = new Todo(text);
 
         // add the todo to the PersistentUnorderedMap
         // where the key is the todo's id and the value
