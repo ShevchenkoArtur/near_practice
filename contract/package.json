@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node tests",
-    "asbuild:debug": "asc assembly/index.ts --target debug",
-    "asbuild:release": "asc assembly/index.ts --target release",
-    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
-    "start": "npx serve ."
+    "build": "asb",
+    "deploy": "near dev-deploy build/release/todos-crud-contract.wasm",
+    "dev": "npm run build && npm run deploy",
+    "test": "asp"
   },
   "keywords": [],
   "author": "",
@@ -16,18 +15,11 @@
   "dependencies": {
     "@assemblyscript/loader": "^0.20.7",
     "asbuild": "^0.2.0",
-    "assemblyscript": "^0.20.7",
+    "assemblyscript": "^0.19.23",
     "near-cli": "^3.3.1",
     "near-sdk-as": "^3.2.3"
   },
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": "./build/release.js",
-      "types": "./build/release.d.ts"
-    }
-  },
   "devDependencies": {
-    "assemblyscript": "^0.20.7"
+    "assemblyscript": "^0.19.23"
   }
 }
