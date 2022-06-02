@@ -1,7 +1,7 @@
 const CONTRACT_NAME = process.env.CONTRACT_NAME || 'dev-1631631317655-25327263281645';
 
 function getConfig(env) {
-    switch(env) {
+    switch (env) {
         case 'mainnet':
             return {
                 networkId: 'mainnet',
@@ -9,10 +9,7 @@ function getConfig(env) {
                 contractName: CONTRACT_NAME,
                 walletUrl: 'https://wallet.near.org',
                 helperUrl: 'https://helper.mainnet.near.org'
-            };
-        // This is an example app so production is set to testnet.
-        // You can move production to mainnet if that is applicable.
-        case 'production':
+            }
         case 'development':
         case 'testnet':
             return {
