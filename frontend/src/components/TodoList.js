@@ -29,7 +29,10 @@ const TodoList = ({contract}) => {
             <button onClick={() => setPage(prev => prev + 1)}>&gt;</button>
             <ul>
                 {
-                    todos.map(todo =>  <li key={todo.id}><Todo contract={contract} todo={todo}/></li>)
+                    todos.map(todo =>  {
+                        console.log(todo)
+                        return <li key={todo.id}><Todo contract={contract} todo={todo}/></li>
+                    })
                 }
             </ul>
         </div>

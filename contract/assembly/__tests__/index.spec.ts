@@ -1,4 +1,4 @@
-import {create, getById, getTodos} from '../index';
+import {create, getById, getByIdAndUpdate, getTodos} from '../index';
 import {Todo, todos} from '../model';
 
 describe('contract methods', () => {
@@ -20,5 +20,13 @@ describe('contract methods', () => {
         expect(getTodos(0, 10)).toStrictEqual(todos.slice(0, 10));
         expect(getTodos(10, 10)).toStrictEqual(todos.slice(10, 20));
         expect(getTodos(50, 50)).toStrictEqual(todos.slice(50, 100));
+    });
+    it('update todo', () => {
+        const todo = Todo.create('test');
+        getByIdAndUpdate(todo.id, {text: 'test1', done: true});
+        const todoAfterUpdate = Todo.getById(todo.id);
+        expect(todoAfterUpdate.id).toStrictEqual(todo.id);
+        expect(todoAfterUpdate.text).toStrictEqual('test1');
+        expect(todoAfterUpdate.done).toStrictEqual(true);
     });
 });
