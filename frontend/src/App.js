@@ -2,6 +2,7 @@ import 'regenerator-runtime/runtime';
 import React from 'react';
 import PropTypes from 'prop-types';
 import CreateTodo from "./components/CreateTodo";
+import TodoList from "./components/TodoList";
 
 const App = ({ contract, currentUser, nearConfig, wallet }) => {
 
@@ -27,6 +28,7 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
                 <button onClick={signOut}>Log out</button>
               </h2>
               <CreateTodo contract={contract}/>
+              <TodoList contract={contract}/>
             </div>
             :
             <div>
@@ -40,7 +42,9 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
 };
 
 App.propTypes = {
-  contract: PropTypes.shape({}).isRequired,
+  contract: PropTypes.shape({
+    create: PropTypes.func.isRequired
+  }).isRequired,
   currentUser: PropTypes.shape({
     accountId: PropTypes.string.isRequired,
     balance: PropTypes.string.isRequired

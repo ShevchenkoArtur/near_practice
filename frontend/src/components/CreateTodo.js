@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import PropTypes from "prop-types";
 
 const CreateTodo = ({contract}) => {
     const [text, setText] = useState('');
@@ -7,7 +8,7 @@ const CreateTodo = ({contract}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        const todo = await contract.create({text});
+        await contract.create({text});
         setText('');
         setIsLoading(false);
     }
@@ -32,5 +33,12 @@ const CreateTodo = ({contract}) => {
         </>
     );
 };
+
+CreateTodo.propTypes = {
+    contract: PropTypes.shape({
+        create: PropTypes.func.isRequired
+    }).isRequired,
+};
+
 
 export default CreateTodo;

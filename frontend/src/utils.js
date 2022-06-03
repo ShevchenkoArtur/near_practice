@@ -19,7 +19,7 @@ export const initContract = async () => {
     }
 
     const contract = await new Contract(walletConnection.account(), nearConfig.contractName, {
-        viewMethods: [],
+        viewMethods: ['getTodos'],
         changeMethods: ['create']
     })
 

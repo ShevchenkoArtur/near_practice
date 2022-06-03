@@ -14,16 +14,17 @@ export class Todo {
         this.done = false;
     }
 
-    static insert(text: string): Todo {
-        // create a new Todo
+    static create(text: string): Todo {
         const todo = new Todo(text);
-
-        // add the todo to the PersistentUnorderedMap
-        // where the key is the todo's id and the value
-        // is the todo itself. Think of this like an
-        // INSERT statement in SQL.
         todos.set(todo.id, todo);
-
         return todo;
+    }
+
+    static getById(id: i32): Todo {
+        return todos.getSome(id);
+    }
+
+    static getTodos(offset: i32, limit: i32): Todo[] {
+        return todos.values(offset, offset + limit);
     }
 }

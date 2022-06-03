@@ -1,8 +1,13 @@
 import { Todo } from "./model";
 
-// export the create method. This acts like an endpoint
-// that we'll be able to call from our web app.
 export function create(text: string): Todo {
-  // use the Todo class to persist the todo data
-  return Todo.insert(text);
+  return Todo.create(text);
+}
+
+export function getById(id: i32): Todo {
+  return Todo.getById(id);
+}
+
+export function getTodos(offset: i32, limit: i32 = 10): Todo[] {
+  return Todo.getTodos(offset, limit);
 }
