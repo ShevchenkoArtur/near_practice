@@ -1,4 +1,4 @@
-import {create, getById, getByIdAndUpdate, getTodos} from '../index';
+import {create, del, getById, getByIdAndUpdate, getTodos} from '../index';
 import {Todo, todos} from '../model';
 
 describe('contract methods', () => {
@@ -28,5 +28,10 @@ describe('contract methods', () => {
         expect(todoAfterUpdate.id).toStrictEqual(todo.id);
         expect(todoAfterUpdate.text).toStrictEqual('test1');
         expect(todoAfterUpdate.done).toStrictEqual(true);
+    });
+    itThrows('delete a todo', () => {
+       const todo = Todo.create('test');
+       del(todo.id);
+       Todo.getById(todo.id);
     });
 });

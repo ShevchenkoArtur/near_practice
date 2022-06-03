@@ -9,6 +9,10 @@ const Todo = ({contract, todo}) => {
         await contract.getByIdAndUpdate({id: todo.id, dto: {done: target.checked, text: todo.text}});
     }
 
+    const handleDelete = async () => {
+        await contract.del({id: todo.id});
+    }
+
     return (
         <div>
             <input
@@ -17,13 +21,15 @@ const Todo = ({contract, todo}) => {
                 checked={isDone}
             />
             <span>{todo.text}</span>
+            <button onClick={handleDelete}>delete</button>
         </div>
     );
 };
 
 Todo.propTypes = {
     contract: PropTypes.shape({
-        getByIdAndUpdate: PropTypes.func.isRequired
+        getByIdAndUpdate: PropTypes.func.isRequired,
+        del: PropTypes.func.isRequired
     }).isRequired,
     todo: PropTypes.shape({
         text: PropTypes.string,

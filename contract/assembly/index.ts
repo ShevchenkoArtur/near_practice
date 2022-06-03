@@ -15,3 +15,7 @@ export function getTodos(offset: i32, limit: i32 = 10): Todo[] {
 export function getByIdAndUpdate(id: i32, dto: UpdateDto): Todo {
   return Todo.getByIdAndUpdate(id, dto);
 }
+
+export function del(id: i32): void {
+  Todo.del(id);
+}

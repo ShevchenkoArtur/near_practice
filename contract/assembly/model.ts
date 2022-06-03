@@ -41,4 +41,8 @@ export class Todo {
         todos.set(id, todo);
         return todo;
     }
+
+    static del(id: i32): void {
+        todos.delete(id);
+    }
 }
